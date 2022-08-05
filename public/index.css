@@ -284,7 +284,7 @@ li {
 }
 
 #modal {
-    position: fixed;
+    position: absolute;
     z-index: 6;
     top: 10vh;
     left: 10vw;

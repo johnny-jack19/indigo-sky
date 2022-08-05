@@ -163,6 +163,7 @@ function disableRooms() {
   if (!bedRooms['single-king']) {
     let king = '';
   }
+  window.scrollTo(0, 0);
   modal.innerHTML = (`
     <button class="close" onclick="closeModal()">X</button>
     <h3>Rooms Available</h3>
