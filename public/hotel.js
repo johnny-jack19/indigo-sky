@@ -1,6 +1,5 @@
 let states = 'Alabama,Alaska,Arizona,Arkansas,California,Colorado,Connecticut,Delaware,Florida,Georgia,Hawaii,Idaho,Illinois,Indiana,Iowa,Kansas,Kentucky,Louisiana,Maine,Maryland,Massachusetts,Michigan,Minnesota,Mississippi,Missouri,Montana,Nebraska,Nevada,New Hampshire,New Jersey,New Mexico,New York,North Carolina,North Dakota,Ohio,Oklahoma,Oregon,Pennsylvania,Rhode Island,South Carolina,South Dakota,Tennessee,Texas,Utah,Vermont,Virginia,Washington,West Virginia,Wisconsin,Wyoming'
 let myStates = states.split(',');
-const url = 'https://jackson-hotel-db.herokuapp.com'
 
 const today = new Date();
 
@@ -79,14 +78,14 @@ const modal = document.getElementById('modal');
 const modalOverlay = document.getElementById('modal-overlay');
 const bookingDates = {};
 const customerInfo = {};
-const parseIndex = {'single-queen': 'Single Queen', 'double-queen': 'Double Queen', 'single-king': 'Single King'};
+const parseIndex = {'singleQueen': 'Single Queen', 'doubleQueen': 'Double Queen', 'singleKing': 'Single King'};
 let myRooms;
 let openRooms;
 let bedRooms = {};
 let price = {
-    'single-queen': 0,
-    'double-queen': 0,
-    'single-king': 0
+    'singleQueen': 0,
+    'doubleQueen': 0,
+    'singleKing': 0
 };
 function formatDay(date) {
   return `${date.getFullYear()}-${
@@ -130,7 +129,7 @@ function getAvailability() {
   })
   .then(() => {
       setTimeout(() => {
-          disableRooms(), 1000
+          disableRooms(), 1050
       });
   });
 }
@@ -139,29 +138,29 @@ function disableRooms() {
   let single = `
     <div id="single-queen" class="avail-room">
       <p>Single Queen</p>
-      <p>Price for room: $${price['single-queen'].toFixed(2)}</p>
+      <p>Price for room: $${price['singleQueen'].toFixed(2)}</p>
     </div>
   `;
   let double = `
     <div id="double-queen" class="avail-room">
       <p>Double Queen</p>
-      <p>Price for room: $${price['double-queen'].toFixed(2)}</p>
+      <p>Price for room: $${price['doubleQueen'].toFixed(2)}</p>
     </div>
   `;
   let king = `
     <div id="single-king" class="avail-room">
       <p>Single King</p>
-      <p>Price for room: $${price['single-king'].toFixed(2)}</p>
+      <p>Price for room: $${price['singleKing'].toFixed(2)}</p>
     </div>
   `;
-  if (bedRooms[!'single-queen']) {
-    let single = '';
+  if (!bedRooms['singleQueen']) {
+    single = '';
   }
-  if (!bedRooms['double-queen']) {
-    let double = '';
+  if (!bedRooms['doubleQueen']) {
+    double = '';
   }
-  if (!bedRooms['single-king']) {
-    let king = '';
+  if (!bedRooms['singleKing']) {
+    king = '';
   }
   window.scrollTo(0, 0);
   modal.innerHTML = (`
@@ -173,51 +172,57 @@ function disableRooms() {
     ${king}
     </div>
   `);
-  document.getElementById('single-queen').addEventListener('click', (e) => {
-    customerInfo.bed = 'single-queen';
-    addToBooking();
-    modalBook();
-  });
-  document.getElementById('double-queen').addEventListener('click', (e) => {
-    customerInfo.bed = 'double-queen';
-    addToBooking();
-    modalBook();
-  });
-  document.getElementById('single-king').addEventListener('click', (e) => {
-    customerInfo.bed = 'single-king';
-    addToBooking();
-    modalBook();
-  });
+  if (bedRooms['singleQueen']) {
+    document.getElementById('single-queen').addEventListener('click', (e) => {
+      customerInfo.bed = 'singleQueen';
+      addToBooking();
+      modalBook();
+    });
+  }
+  if (bedRooms['doubleQueen']) {
+    document.getElementById('double-queen').addEventListener('click', (e) => {
+      customerInfo.bed = 'doubleQueen';
+      addToBooking();
+      modalBook();
+    });
+  }
+  if (bedRooms['singleKing']) {
+    document.getElementById('single-king').addEventListener('click', (e) => {
+      customerInfo.bed = 'singleKing';
+      addToBooking();
+      modalBook();
+    });
+  }
 }
 
 function checkRoomRange() {
   myRooms = [];
   openRooms = {
-      'room-1': true,
-      'room-2': true,
-      'room-3': true,
-      'room-4': true,
-      'room-5': true,
-      'room-6': true
+      'room1': true,
+      'room2': true,
+      'room3': true,
+      'room4': true,
+      'room5': true,
+      'room6': true
   };
   checkRooms(myRooms, bookingDates['check-in'], formatDay(new Date(bookingDates['check-out'])));
 }
 
 function sortRooms() {
-  price = {'single-queen': 0, 'double-queen': 0, 'single-king': 0};
+  price = {'singleQueen': 0, 'doubleQueen': 0, 'singleKing': 0};
   for (days of myRooms) {
       for (let i = 1; i < 7; i++) {
-          if (days[`room-${i}`] != 0) {
-              openRooms[`room-${i}`] = false;
+          if (days[`room${i}`] != 0) {
+              openRooms[`room${i}`] = false;
           }
       }
-      price['single-queen'] += days['single-queen'];
-      price['double-queen'] += days['double-queen'];
-      price['single-king'] += days['single-king'];
+      price['singleQueen'] += days['singleQueen'];
+      price['doubleQueen'] += days['doubleQueen'];
+      price['singleKing'] += days['singleKing'];
   }
-  bedRooms['single-queen'] = (openRooms['room-1'] || openRooms['room-2']);
-  bedRooms['double-queen'] = (openRooms['room-3'] || openRooms['room-4']);
-  bedRooms['single-king'] = (openRooms['room-5'] || openRooms['room-6']);
+  bedRooms['singleQueen'] = (openRooms['room1'] || openRooms['room2']);
+  bedRooms['doubleQueen'] = (openRooms['room3'] || openRooms['room4']);
+  bedRooms['singleKing'] = (openRooms['room5'] || openRooms['room6']);
 }
 
 function getForm(store, id) {
@@ -229,23 +234,23 @@ function getForm(store, id) {
 }
 
 function addToBooking() {
-  if (customerInfo['bed'] === 'single-queen') {
-    customerInfo['room-cost'] = price['single-queen'];
-      if (openRooms['room-1']) {
+  if (customerInfo['bed'] === 'singleQueen') {
+    customerInfo['roomCost'] = price['singleQueen'];
+      if (openRooms['room1']) {
         customerInfo.room = 1;
       } else {
         customerInfo.room = 2;
       }
-  } else if (customerInfo['bed'] === 'double-queen') {
-    customerInfo['room-cost'] = price['double-queen'];
-      if (openRooms['room-3']) {
+  } else if (customerInfo['bed'] === 'doubleQueen') {
+    customerInfo['roomCost'] = price['doubleQueen'];
+      if (openRooms['room3']) {
         customerInfo.room = 3;
       } else {
         customerInfo.room = 4;
       }
   } else {
-    customerInfo['room-cost'] = price['single-king'];
-      if (openRooms['room-5']) {
+    customerInfo['roomCost'] = price['singleKing'];
+      if (openRooms['room5']) {
         customerInfo.room = 5;
       } else {
         customerInfo.room = 6;
@@ -351,10 +356,10 @@ function confirmBooking() {
       <div>Room: ${customerInfo.room}</div>
   </div>
   <div class="check-row">
-      <div>Room Cost: $${customerInfo['room-cost'].toFixed(2)}</div>
-      <div>Taxes: $${(customerInfo['room-cost'] * .06).toFixed(2)}</div>
+      <div>Room Cost: $${customerInfo['roomCost'].toFixed(2)}</div>
+      <div>Taxes: $${(customerInfo['roomCost'] * .06).toFixed(2)}</div>
       <div>Cleaning Fee: $50.00</div>
-      <div>Total Cost: $${(customerInfo['room-cost'] * 1.06 + 50).toFixed(2)}</div>
+      <div>Total Cost: $${(customerInfo['roomCost'] * 1.06 + 50).toFixed(2)}</div>
   </div>
   <div class="button-row">
       <button onclick="createNewBooking()">Confirm</button>
@@ -365,28 +370,28 @@ function confirmBooking() {
 
 function createNewBooking() {
   const billing = {
-      'first-name': customerInfo['first-name'],
-      'last-name': customerInfo['last-name'],
+      'firstName': customerInfo['first-name'],
+      'lastName': customerInfo['last-name'],
       'email': customerInfo['email'],
       'phone': customerInfo['phone'],
       'address': customerInfo['address'],
       'city': customerInfo['city'],
       'state': customerInfo['state'],
       'zip': customerInfo['zip'],
-      'name-on-card': customerInfo['card-name'],
-      'card-number': customerInfo['card-number'],
+      'nameOnCard': customerInfo['card-name'],
+      'cardNumber': customerInfo['card-number'],
       'cvc': customerInfo['cvc'],
-      'exp-date': customerInfo['exp-date']
+      'expDate': customerInfo['exp-date']
   }
 
   const booking = {
       'name': `${customerInfo['first-name']} ${customerInfo['last-name']}`,
-      'check-in': bookingDates['check-in'],
-      'check-out': bookingDates['check-out'],
-      'number-of-days': ((new Date(bookingDates['check-out']) - new Date(bookingDates['check-in'])) / 1000 / 60 / 60 / 24),
+      'checkIn': bookingDates['check-in'],
+      'checkOut': bookingDates['check-out'],
+      'numberOfDays': ((new Date(bookingDates['check-out']) - new Date(bookingDates['check-in'])) / 1000 / 60 / 60 / 24),
       'room': customerInfo.room,
-      'room-cost': customerInfo['room-cost'],
-      'total-cost': (customerInfo['room-cost'] * 1.06 + 50).toFixed(2)
+      'roomCost': customerInfo['roomCost'],
+      'totalCost': (customerInfo['roomCost'] * 1.06 + 50).toFixed(2)
   }
 
   return new Promise((resolve, reject) => {
@@ -399,7 +404,7 @@ function createNewBooking() {
   })
   .then(() => {
       return new Promise((resolve, reject) => {
-          setTimeout(() => resolve(addBookingToRooms(`room-${booking.room}`, booking.id, booking['check-in'], formatDay(new Date(booking['check-out'])))), 1000);
+          setTimeout(() => resolve(addBookingToRooms(`room${booking.room}`, booking.id, booking['checkIn'], formatDay(new Date(booking['checkOut'])))), 1000);
       })
   })
   .then(() => {

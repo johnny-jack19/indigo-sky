@@ -1,3 +1,4 @@
+const url = 'https://jackson-hotel-db.herokuapp.com';
 function checkRooms(store, startDay, endDay) {
     fetch(url + `/rooms/${startDay}/${endDay}`,
     {
@@ -30,7 +31,7 @@ function makeNewCustomer(store, customer) {
     })
     .then(res => res.json())
     .then(data => {
-        store['customer-id'] = data.results[0];
+        store['customerId'] = data.results[0];
     })
     .catch((error) => {
         console.error('Error:', error);
