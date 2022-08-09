@@ -14,5 +14,7 @@ The three parts are hosted on Github and Heroku. The links can be found here:
 [4]: http://jackson-hotel-company.herokuapp.com/ "Company Website"
 [5]: https://github.com/johnny-jack19/hotel-db "Database Code"
 
+The static website is in the public folder.  The express server is for hosting purposes.
+
 This is the customer facing website that would tell a bit about the hotel and the area around.  It connects to a database and allows 
 for booking.
