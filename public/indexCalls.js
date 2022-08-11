@@ -75,3 +75,19 @@ function addBookingToRooms(room, booking, startDay, endDay) {
         console.error('Error:', error);
     });
 }
+
+//Wake up database
+function ping() {
+    fetch(url + '/rooms',
+    {
+        method: 'GET',
+        mode: 'cors',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(res => res.json())
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+}
