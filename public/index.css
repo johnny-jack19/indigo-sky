@@ -1,495 +1,521 @@
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    background-color: rgb(155, 93, 229);
-    overflow-x: hidden;
-    font-family: 'Overpass', Sans-Serif;
+  background-color: rgb(155, 93, 229);
+  overflow-x: hidden;
+  font-family: "Overpass", Sans-Serif;
 }
 
 footer {
-    background-color: rgb(0, 100, 250);
-    color: white;
-    text-align: center;
-    line-height: 1.5em;
-    padding: .5em;
+  background-color: rgb(0, 100, 250);
+  color: white;
+  text-align: center;
+  line-height: 1.5em;
+  padding: 0.5em;
 }
 
 form {
-    width: 100%;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    background-color: rgb(241, 91, 181);
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(241, 91, 181);
 }
 
-h1, h2, h3 {
-    font-family: 'Permanent Marker', Cursive;
-    text-shadow: 2px 2px 8px black;
+h1,
+h2,
+h3 {
+  font-family: "Permanent Marker", Cursive;
+  text-shadow: 2px 2px 8px black;
 }
 
 h1 {
-    color: white;
-    font-size: 3em;
-    text-align: center;
-    background-color: rgb(66, 69, 250);
-    border-radius: 50%;
-    margin: .3em 0;
+  color: white;
+  font-size: 3em;
+  text-align: center;
+  background-image: linear-gradient(
+    to bottom right,
+    rgb(241, 91, 181),
+    rgb(66, 69, 250),
+    rgb(0, 245, 212)
+  );
+  border-radius: 50%;
+  margin: 0;
+  padding: 0.5em;
 }
 
 h2 {
-    font-size: 3.5em;
-    text-align: center;
-    color: rgb(66, 69, 250);
-    background-color: rgb(254, 228, 64);
-    margin-bottom: .3em;
+  font-size: 3.5em;
+  text-align: center;
+  color: rgb(66, 69, 250);
+  background-color: rgb(254, 228, 64);
+  margin-bottom: 0.3em;
 }
 
 h3 {
-    color: rgb(0, 245, 212);
-    font-size: 1.8em;
-    margin-top: 1em;
-    margin-left: 1em;
+  color: rgb(0, 245, 212);
+  font-size: 1.8em;
+  margin-top: 1em;
+  margin-left: 1em;
 }
 
 h4 {
-    font-size: 1.2em;
-    margin-left: -.5em;
+  font-size: 1.2em;
+  margin-left: -0.5em;
 }
 
 input[type="submit"] {
-    background-color: rgb(66, 69, 250);
-    color: white;
-    font-size: 1.2em;
-    width: 5em;
-    height: 2em;
-    border-radius: 8px;
-    margin: .5em 0;
+  background-color: rgb(66, 69, 250);
+  color: white;
+  font-size: 1.2em;
+  width: 5em;
+  height: 2em;
+  border-radius: 8px;
+  margin: 0.5em 0;
 }
 
 label {
-    display: flex;
-    flex-direction: column;
-    width: 45%;
-    font-size: 1.2em;
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+  font-size: 1.2em;
 }
 
 li {
-    color: white;
-    padding: .5em;
-    margin-left: 2.5em;
-    font-size: 1.2em;
-    list-style: none;
+  color: white;
+  padding: 0.5em;
+  margin-left: 2.5em;
+  font-size: 1.2em;
+  list-style: none;
 }
 
 .overlay {
-    background-color: black;
-    opacity: .7;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: 8px;
-    z-index: 3;
-    display: none;
+  background-color: black;
+  opacity: 0.7;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  z-index: 3;
+  display: none;
 }
 
 .overlay-text {
-    position: absolute;
-    width: 80%;
-    text-align: center;
-    padding-top: 25%;
-    padding-left: 10%;
-    color: white;
-    z-index: 3;
-    display: none;
+  position: absolute;
+  width: 80%;
+  text-align: center;
+  padding-top: 25%;
+  padding-left: 10%;
+  color: white;
+  z-index: 3;
+  display: none;
 }
 
 .room-bio {
-    color: white;
-    width: 85%;
-    font-size: 1.2;
-    margin: 1em auto;
-    text-align: center;
+  color: white;
+  width: 85%;
+  font-size: 1.2;
+  margin: 1em auto;
+  text-align: center;
 }
-  
+
 .slide {
-    width: 100%;
-    height: 50vw;
-    position: absolute;
-    transition: all 0.5s;
+  width: 100%;
+  height: 50vw;
+  position: absolute;
+  transition: all 0.5s;
 }
-  
+
 .slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: fill;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
 }
 
 .btn {
-    position: absolute;
-    top: 20vw;
-    width: 10vw;
-    height: 10vw;
-    border-radius: 50%;
-    font-size: 8vw;
-    opacity: .3;
-    color: white;
-    background-color: rgb(0, 245, 212);
-
+  position: absolute;
+  top: 20vw;
+  width: 10vw;
+  height: 10vw;
+  border-radius: 50%;
+  font-size: 8vw;
+  opacity: 0.3;
+  color: white;
+  background-color: rgb(0, 245, 212);
 }
 .btn-next {
-    left: 69vw;
+  left: 69vw;
 }
 
 .btn-prev {
-    left: 1vw;
+  left: 1vw;
 }
 
-
 .footer-title {
-    font-family: 'Permanent Marker', Cursive;
-    font-size: 1.5em;
+  font-family: "Permanent Marker", Cursive;
+  font-size: 1.5em;
 }
 
 .main-container {
-    width: 100%;
-    margin: auto;
-    padding: 0;
-    border: none;
+  width: 100%;
+  margin: auto;
+  padding: 0;
+  border: none;
 }
 
 .hero-slide {
-    width: 100%;
-    height: 62vw;
-    position: absolute;
-    transition: all 0.5s;
+  width: 100%;
+  height: 62vw;
+  position: absolute;
+  transition: all 0.5s;
 }
-  
+
 .hero-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: fill;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
 }
 
 .amenity-card {
-    position: relative;
-    width: 75vw;
-    height: 47vw;
-    border: 1px solid black;
-    border-radius: 8px;
-    box-shadow: 5px 5px 8px black;
-    margin: 1em auto;
+  position: relative;
+  width: 75vw;
+  height: 47vw;
+  border: 1px solid black;
+  border-radius: 8px;
+  box-shadow: 5px 5px 8px black;
+  margin: 1em auto;
+  max-width: 600px;
 }
 
 .amenity-card img {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: fill;
-    border-radius: 8px;
-    z-index: 1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  border-radius: 8px;
+  z-index: 1;
 }
 
-.amenity-card:hover .overlay, .amenity-card:hover .overlay-text, 
-.amenity-card:active .overlay, .amenity-card:active .overlay-text {
-    display: block;
+.amenity-card:hover .overlay,
+.amenity-card:hover .overlay-text,
+.amenity-card:active .overlay,
+.amenity-card:active .overlay-text {
+  display: block;
 }
 
 .amenity-card h3 {
-    position: absolute;
-    width: 100%;
-    z-index: 2;
-    color: white;
-    background-color: rgb(241, 91, 181);
-    text-align: center;
-    font-size: 10vw;
-    bottom: 0;
-    margin-left: 0;
-    border-radius: 0 0 8px 8px;
+  position: absolute;
+  width: 100%;
+  z-index: 2;
+  color: white;
+  background-color: rgb(241, 91, 181);
+  text-align: center;
+  font-size: 10vw;
+  bottom: 0;
+  margin-left: 0;
+  border-radius: 0 0 8px 8px;
 }
 
 .mapouter {
-    margin: auto;
-    margin-top: 1em;
-    position: relative;
-    padding-bottom: 62.5%;
-    height: 0;
-    width: 85%;
-    overflow: hidden;
-    max-width: 600px;
+  margin: auto;
+  margin-top: 1em;
+  position: relative;
+  padding-bottom: 62.5%;
+  height: 0;
+  width: 85%;
+  overflow: hidden;
+  max-width: 600px;
 }
 
 .gmap_canvas {
-    top: 0;
-    left: 0;
-    position: absolute;
-    width: 100%;
-    height: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
 
 .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: 5;
-    background-color: black;
-    opacity: .8;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 5;
+  background-color: black;
+  opacity: 0.8;
 }
 
 #avail-form {
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-around;
-    align-items: center;
-    transition: .7s;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: center;
+  transition: 0.7s;
 }
 
 #avail-form label {
-    color: white;
-    width: 30%;
+  color: white;
+  width: 30%;
 }
 
-
-
 #room-carousel {
-    width: 80vw;
-    height: 50vw;
-    position: relative;
-    overflow: hidden;
-    border-radius: 15px;
-    margin: auto;
+  width: 80vw;
+  height: 50vw;
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+  margin: auto;
+}
+
+#header {
+  position: relative;
 }
 
 #h1-wrapper {
-    background-color: rgb(0, 245, 212);
-    padding: .3em 0;
+  z-index: 3;
+  position: absolute;
+  left: calc(50vw - 15em);
+  top: 35%;
 }
 
 #book-container {
-    position: sticky;
-    top: 0;
-    z-index: 4;
+  position: sticky;
+  top: 0;
+  z-index: 4;
 }
 
 #hero {
-    display: block;
-    width: 100vw;
-    height: 62vw;
-    position: relative;
-    overflow: hidden;
+  display: block;
+  width: 100vw;
+  height: 62vw;
+  position: relative;
+  overflow: hidden;
+}
+
+#hero-overlay {
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-image: linear-gradient(
+    to bottom right,
+    rgba(0, 245, 212, 0.6),
+    rgba(241, 91, 181, 0.6)
+  );
 }
 
 #modal {
-    position: absolute;
-    z-index: 6;
-    top: 10vh;
-    left: 10vw;
-    width: 80vw;
-    height: 80vh;
-    background-color: rgb(241, 91, 181);
-    border-radius: 8px;
+  position: absolute;
+  z-index: 6;
+  top: 10vh;
+  left: 10vw;
+  width: 80vw;
+  height: 80vh;
+  background-color: rgb(241, 91, 181);
+  border-radius: 8px;
 }
 
-#modal h3{
-    margin: 0;
-    font-size: 2em;
-    padding: .5em 0;
-    border-radius: 8px 8px 0 0;
-    text-align: center;
-    background-color: rgb(0, 245, 212);
-    color: white;
+#modal h3 {
+  margin: 0;
+  font-size: 2em;
+  padding: 0.5em 0;
+  border-radius: 8px 8px 0 0;
+  text-align: center;
+  background-color: rgb(0, 245, 212);
+  color: white;
 }
 
 #modal_book-form {
-    width: 95%;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
+  width: 95%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 #modal_book-form label {
-    width: 45%;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    color: white;
+  width: 45%;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  color: white;
 }
 
 #modal_book-form label.full {
-    width: 95%;
+  width: 95%;
 }
 
 .close {
-    position: absolute;
-    font-size: 3vw;
-    width: 5vw;
-    min-width: 30px;
-    max-width: 50px;
-    height: 5vw;
-    min-height: 30px;
-    max-height: 50px;
-    top: 0;
-    right: 0;
-    border-radius: 8px;
-    color: white;
-    background-color: rgb(0, 100, 250);
+  position: absolute;
+  font-size: 3vw;
+  width: 5vw;
+  min-width: 30px;
+  max-width: 50px;
+  height: 5vw;
+  min-height: 30px;
+  max-height: 50px;
+  top: 0;
+  right: 0;
+  border-radius: 8px;
+  color: white;
+  background-color: rgb(0, 100, 250);
 }
 
 .loading {
-    color: white;
-    font-size: 2em;
-    text-align: center;
-    padding-top: 25vh;
+  color: white;
+  font-size: 2em;
+  text-align: center;
+  padding-top: 25vh;
 }
 
 .room-options {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    width: 90%;
-    margin: auto;
-    height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 90%;
+  margin: auto;
+  height: 80%;
 }
 
 .avail-room {
-    background-color: rgb(155, 93, 229);
-    padding: .5em;
-    border-radius: 5px;
-    border: 3px solid rgb(254, 228, 64);
+  background-color: rgb(155, 93, 229);
+  padding: 0.5em;
+  border-radius: 5px;
+  border: 3px solid rgb(254, 228, 64);
 }
 
 .avail-room p {
-    color: white;
-    font-size: 1.5em;
-    line-height: 1.5em;
+  color: white;
+  font-size: 1.5em;
+  line-height: 1.5em;
 }
 
 .booking-info-modal {
-    display: flex;
-    color: white;
-    flex-wrap: wrap;
+  display: flex;
+  color: white;
+  flex-wrap: wrap;
 }
 
 .booking-info-modal div {
-    width: 40%;
-    flex-grow: 1;
-    padding: .5em;
+  width: 40%;
+  flex-grow: 1;
+  padding: 0.5em;
 }
 
 .check-row {
-    display: flex;
-    color: white;
-    flex-wrap: wrap;
+  display: flex;
+  color: white;
+  flex-wrap: wrap;
 }
 
 .check-row div {
-    width: 40%;
-    padding: .5em;
-    flex-grow: 1;
+  width: 40%;
+  padding: 0.5em;
+  flex-grow: 1;
 }
 
 .button-row {
-    display: flex;
-    justify-content: space-around;
-    margin-left: 10vw;
+  display: flex;
+  justify-content: space-around;
+  margin-left: 10vw;
 }
 
 .button-row button {
-    background-color: rgb(0, 100, 250);
-    color: white;
-    width: 4em;
-    height: 1.2em;
-    font-size: 2em;
-    margin-top: 1em;
-    border-radius: 12px;
+  background-color: rgb(0, 100, 250);
+  color: white;
+  width: 4em;
+  height: 1.2em;
+  font-size: 2em;
+  margin-top: 1em;
+  border-radius: 12px;
 }
 
 /* ---------------------------------------------Hidden--------------------------------------------- */
 .hidden {
-    display: none;
+  display: none;
 }
 
 /* --------------------------------------------Desktop--------------------------------------------- */
 @media only screen and (min-width: 900px) {
-    .row-wrapper {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
-    }
+  .row-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
 
-    .mapouter {
-        padding-bottom: 500px;
-    }
+  .mapouter {
+    padding-bottom: 500px;
+  }
 
-    .amenity-card {
-        position: relative;
-        width: 40vw;
-        height: 25vw;
-        border: 1px solid black;
-        border-radius: 8px;
-        box-shadow: 5px 5px 8px black;
-        margin: 1em auto;
-    }
+  .amenity-card {
+    position: relative;
+    width: 40vw;
+    height: 25vw;
+    border: 1px solid black;
+    border-radius: 8px;
+    box-shadow: 5px 5px 8px black;
+    margin: 1em auto;
+  }
 
-    .amenity-card h3 {
-        font-size: 5vw;
-        border-radius: 0 0 8px 8px;
-    }
+  .amenity-card h3 {
+    font-size: 5vw;
+    border-radius: 0 0 8px 8px;
+  }
 
-    #room-carousel {
-        width: 40vw;
-        height: 25vw;
-        margin-top: 1em;
-        margin-bottom: 1em;
-    }
-      
-    .slide {
-        height: 25vw;
-    }
+  #room-carousel {
+    width: 40vw;
+    height: 25vw;
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
 
-    .btn {
-        top: 11vw;
-        width: 5vw;
-        height: 5vw;
-        border-radius: 50%;
-        font-size: 3vw;
-        opacity: .3;
-        color: white;
-        background-color: rgb(0, 245, 212);
-    }
-    
-    .btn-prev {
-        left: 1vw;
-    }
-    
-    .btn-next {
-        left: 34vw;
-    }
+  .slide {
+    height: 25vw;
+  }
 
-    .room-bio {
-        width: 45%;
-        align-self: center;
-    }
+  .btn {
+    top: 11vw;
+    width: 5vw;
+    height: 5vw;
+    border-radius: 50%;
+    font-size: 3vw;
+    opacity: 0.3;
+    color: white;
+    background-color: rgb(0, 245, 212);
+  }
 
-    #hero {
-        width: 50vw;
-        height: 31vw;
-    }
-    
-    .hero-slide {
-        height: 31vw;
-    }
+  .btn-prev {
+    left: 1vw;
+  }
 
-    #h1-wrapper {
-        flex-grow: 1;
-        padding: 0;
-        padding-top: 10vw;
-    }
+  .btn-next {
+    left: 34vw;
+  }
 
-    #modal_book-form input[type="submit"] {
-        margin: 2em;
-    }
+  .room-bio {
+    width: 45%;
+    align-self: center;
+  }
+
+  #hero {
+    width: 100vw;
+    height: 62vh;
+  }
+
+  .hero-slide {
+    height: 62vh;
+  }
+
+  #h1-wrapper {
+    flex-grow: 1;
+    padding: 0;
+  }
+
+  #modal_book-form input[type="submit"] {
+    margin: 2em;
+  }
 }
