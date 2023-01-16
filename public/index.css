@@ -213,7 +213,7 @@ li {
   color: white;
   background-color: rgb(241, 91, 181);
   text-align: center;
-  font-size: 10vw;
+  font-size: 3em;
   bottom: 0;
   margin-left: 0;
   border-radius: 0 0 8px 8px;
@@ -351,7 +351,7 @@ li {
 
 .close {
   position: absolute;
-  font-size: 3vw;
+  font-size: x-large;
   width: 5vw;
   min-width: 30px;
   max-width: 50px;
@@ -464,6 +464,10 @@ li {
     justify-content: space-around;
   }
 
+  .close {
+    font-size: xx-large;
+  }
+
   .mapouter {
     padding-bottom: 500px;
   }
@@ -479,7 +483,7 @@ li {
   }
 
   .amenity-card h3 {
-    font-size: 5vw;
+    font-size: 3em;
     border-radius: 0 0 8px 8px;
   }
 
